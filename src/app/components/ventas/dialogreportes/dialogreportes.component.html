@@ -1,0 +1,35 @@
+<br>
+<div class="fechaNoti">
+    <div class="row">
+        <div class="col-sm-2">
+            <label>Fecha Desde: </label>
+            <input type="date" id="start" name="trip-start" value="2021" min="2021-07-09"
+                max="2022-12-31" [(ngModel)]="fechaDesde">
+        </div>
+        <div class="col-sm-2">
+            <label>Fecha Hasta: </label>
+            <input type="date" id="start" name="trip-start" value="2021" min="2021-07-09"
+                max="2022-12-31" [(ngModel)]="fechaHasta">
+        </div>
+        <div class="col-sm-2">
+            <button class="btn" style="margin-top: 35px;" (click)="reportePDF()">Cargar Información</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn" style="margin-top: 35px; background-color: #31A517;" (click)="reporteExcel()">Descargar Información</button>
+        </div>
+
+        <div class="col-sm-2">
+            <button class="btn" style="margin-top: 35px; background-color: #31A517;" (click)="reporteExcelAtrasados()">Socios Atrasados</button>
+        </div>
+
+        <!-- <div class="col-sm-2">
+            <button (click)="reportePDF()" class="btn" style="margin-top: 35px; background-color: #25be46;"><svg
+                    xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm12 6V9c0-.55-.45-1-1-1h-2v5h2c.55 0 1-.45 1-1zm-2-3h1v3h-1V9zm4 2h1v-1h-1V9h1V8h-2v5h1zm-8 0h1c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1H9v5h1v-2zm0-2h1v1h-1V9z" />
+                </svg> Descargar Reporte</button>
+        </div> -->
+    </div>
+</div>
+<br>

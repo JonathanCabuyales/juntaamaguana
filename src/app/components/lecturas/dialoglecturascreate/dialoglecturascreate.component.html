@@ -1,0 +1,24 @@
+<h3>Crear Lectura</h3>
+<p><b>Socio: </b> {{ lectura.nombres_cli }} {{ lectura.apellidos_cli }}</p>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <br>
+        <span><b>Lectura Pasada: </b>{{ lectura.lecturaact_lec }}</span>
+
+    </div>
+    <div class="col-sm-6">
+        <span><b>Nueva Lectura: </b></span>
+        <input type="number" class="form-control" matInput placeholder="Nueva lectura" [(ngModel)]="lecturaact">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        
+    </div>
+    <div class="col-sm-6">
+        <br>
+        <button class="btn btnAceptar" (click)="guardarLectura()">Guardar Nueva Lectura</button>
+    </div>
+</div>

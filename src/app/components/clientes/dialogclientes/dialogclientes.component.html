@@ -1,0 +1,53 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div mat-dialog-content class="dialog">
+    <h2>Datos Del Cliente</h2>
+    <br>
+    <div class="filaProSer">
+        <p><b>Nombres *: </b></p>
+        <input matInput type="text" style="text-align: right;" class="form-control" [(ngModel)]="cliente.nombres_cli" placeholder="Nombres" >
+    </div>
+
+    <div class="filaProSer">
+        <p><b>Apellidos *:</b></p>
+        <input matInput type="text" style="text-align: right;" class="form-control" [(ngModel)]="cliente.apellidos_cli" placeholder="Apellidos">
+    </div>
+
+    <div class="filaProSer">
+        <p><b>Cédula/RUC:</b></p>
+        <input matInput type="text" value="" style="text-align: right;" class="form-control" [(ngModel)]="cliente.ciruc_cli" placeholder="C.I / RUC" maxlength="13">
+    </div>
+    
+    <div class="filaProSer">
+        <p><b>Dirección:</b></p>
+        <select class="combobox" style="margin: 0; width: 60%;" [(ngModel)]="cliente.direccion_cli">
+            <option value="0">Sector</option>
+            <option value="CUENDIAN CHICO">Cuendina Chico</option>
+            <option value="EL ROSARIO">EL Rosario</option>
+            <option value="GUAMBA">Guamba</option>
+            <option value="SAN JUAN">San Juan</option>
+            <option value="SAN LUIS">San Luis</option>
+            <option value="SANTA ROSA">Santa Rosa</option>
+
+        </select>        
+    </div>
+
+    <div class="filaProSer">
+        <p><b>Email</b></p>
+        <input matInput type="text" style="text-align: right;" class="form-control" [(ngModel)]="cliente.email_cli" placeholder="Email" >
+    </div>
+
+    <div class="filaProSer">
+        <p><b>Teléfono/Celular:</b></p>
+        <input matInput type="text" style="text-align: right;" class="form-control" [(ngModel)]="cliente.telefono_cli" placeholder="Teléfono / Celular" maxlength="10">
+    </div>
+
+</div>
+
+<div mat-dialog-actions style="display: flex; align-items: flex-end; float: right;">
+    
+    <button mat-button class="btn" (click)="cancelar()">Cancelar</button>
+    <button mat-button class="btn" (click)="guardar()" >Guardar</button>
+
+</div>

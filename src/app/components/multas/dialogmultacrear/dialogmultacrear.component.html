@@ -1,0 +1,49 @@
+<h2>
+    Nuevo Registro
+</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <span><b>Número de Socio</b></span>
+        <input matInput type="number" class="form-control" placeholder="Ejem: 39" [(ngModel)]="multaconexionnueva.id_cli">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Tipo de Registro: </b>
+        </span>
+        <select style="width: 100%; border-radius: 5px; padding: 10px;" [(ngModel)]="multaconexionnueva.tipo_mul">
+            <option value="0">Seleccione una opción</option>
+            <!-- <option value="CONEXION">Conexion nueva</option>
+            <option value="MATERIAL">Material</option>
+            <option value="MEDIDOR NUEVO">Medidor nuevo</option> -->
+            <option value="TRASPASO">Traspaso de nombre</option>
+            <option value="MULTA">Multa</option>
+        </select>
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Valor: </b>
+        </span>
+        <input matInput type="number" class="form-control" placeholder="Ejem: 20.21"
+            [(ngModel)]="multaconexionnueva.valor_mul">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <span>
+            <b>Descripción: </b>
+        </span>
+        <input matInput type="text" class="form-control" placeholder="Ejem: Multa por sesión, Material nuevo, Conexión nueva" [(ngModel)]="multaconexionnueva.descripcion_mul">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+        <button class="btn" (click)="guardar()">Guardar Registro</button>
+    </div>
+</div>

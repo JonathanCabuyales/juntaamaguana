@@ -1,0 +1,367 @@
+<!-- <div class="pantallainicio">
+
+    <div class="menulateral" style="overflow-x:hidden; overflow-y:scroll;">
+
+        <div class="usuario">
+            <img src="../../../assets/img/VTSESION.png" (click)="perfilUsuario()" alt="Perfil usuario"
+                title="Perfil De Usuario">
+            <div class="usuariosesion">
+                <div class="activo"></div>
+                <p>Bienvenido Admin</p>
+            </div>
+        </div>
+
+        <div class="menubotones">
+            <div class="botones" [routerLink]="['/home/dashboard']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z" />
+                </svg>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="botones" [routerLink]="['/home/ventas']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+
+                <span>Ventas</span>
+            </div>
+
+            <div class="botones" [routerLink]="['/home/emapa']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+
+                <span>EMAPA PED</span>
+            </div>
+
+            <div class="botones" [routerLink]="['/home/proyeccion']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <g>
+                        <rect fill="none" height="24" width="24" x="0" />
+                    </g>
+                    <g>
+                        <g>
+                            <path
+                                d="M23,8c0,1.1-0.9,2-2,2c-0.18,0-0.35-0.02-0.51-0.07l-3.56,3.55C16.98,13.64,17,13.82,17,14c0,1.1-0.9,2-2,2s-2-0.9-2-2 c0-0.18,0.02-0.36,0.07-0.52l-2.55-2.55C10.36,10.98,10.18,11,10,11c-0.18,0-0.36-0.02-0.52-0.07l-4.55,4.56 C4.98,15.65,5,15.82,5,16c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2c0.18,0,0.35,0.02,0.51,0.07l4.56-4.55C8.02,9.36,8,9.18,8,9 c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.18-0.02,0.36-0.07,0.52l2.55,2.55C14.64,12.02,14.82,12,15,12c0.18,0,0.36,0.02,0.52,0.07 l3.55-3.56C19.02,8.35,19,8.18,19,8c0-1.1,0.9-2,2-2S23,6.9,23,8z M23,8c0,1.1-0.9,2-2,2c-0.18,0-0.35-0.02-0.51-0.07l-3.56,3.55 C16.98,13.64,17,13.82,17,14c0,1.1-0.9,2-2,2s-2-0.9-2-2c0-0.18,0.02-0.36,0.07-0.52l-2.55-2.55C10.36,10.98,10.18,11,10,11 c-0.18,0-0.36-0.02-0.52-0.07l-4.55,4.56C4.98,15.65,5,15.82,5,16c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2 c0.18,0,0.35,0.02,0.51,0.07l4.56-4.55C8.02,9.36,8,9.18,8,9c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.18-0.02,0.36-0.07,0.52l2.55,2.55 C14.64,12.02,14.82,12,15,12c0.18,0,0.36,0.02,0.52,0.07l3.55-3.56C19.02,8.35,19,8.18,19,8c0-1.1,0.9-2,2-2S23,6.9,23,8z" />
+                        </g>
+                    </g>
+                </svg>
+                <span>Proyección</span>
+            </div>
+
+            <div class="botones" [routerLink]="['/home/compras']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <g>
+                        <rect fill="none" height="24" width="24" />
+                    </g>
+                    <g>
+                        <g>
+                            <path
+                                d="M20,2H4C3,2,2,2.9,2,4v3.01C2,7.73,2.43,8.35,3,8.7V20c0,1.1,1.1,2,2,2h14c0.9,0,2-0.9,2-2V8.7c0.57-0.35,1-0.97,1-1.69V4 C22,2.9,21,2,20,2z M19,20H5V9h14V20z M20,7H4V4h16V7z" />
+                            <rect height="2" width="6" x="9" y="12" />
+                        </g>
+                    </g>
+                </svg>
+                <span>Compras</span>
+            </div>
+            <div class="botones" [routerLink]="['/home/productosservicios']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <g>
+                        <rect fill="none" height="24" width="24" />
+                    </g>
+                    <g>
+                        <g />
+                        <g>
+                            <path
+                                d="M21.9,8.89l-1.05-4.37c-0.22-0.9-1-1.52-1.91-1.52H5.05C4.15,3,3.36,3.63,3.15,4.52L2.1,8.89 c-0.24,1.02-0.02,2.06,0.62,2.88C2.8,11.88,2.91,11.96,3,12.06V19c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2v-6.94 c0.09-0.09,0.2-0.18,0.28-0.28C21.92,10.96,22.15,9.91,21.9,8.89z M18.91,4.99l1.05,4.37c0.1,0.42,0.01,0.84-0.25,1.17 C19.57,10.71,19.27,11,18.77,11c-0.61,0-1.14-0.49-1.21-1.14L16.98,5L18.91,4.99z M13,5h1.96l0.54,4.52 c0.05,0.39-0.07,0.78-0.33,1.07C14.95,10.85,14.63,11,14.22,11C13.55,11,13,10.41,13,9.69V5z M8.49,9.52L9.04,5H11v4.69 C11,10.41,10.45,11,9.71,11c-0.34,0-0.65-0.15-0.89-0.41C8.57,10.3,8.45,9.91,8.49,9.52z M4.04,9.36L5.05,5h1.97L6.44,9.86 C6.36,10.51,5.84,11,5.23,11c-0.49,0-0.8-0.29-0.93-0.47C4.03,10.21,3.94,9.78,4.04,9.36z M5,19v-6.03C5.08,12.98,5.15,13,5.23,13 c0.87,0,1.66-0.36,2.24-0.95c0.6,0.6,1.4,0.95,2.31,0.95c0.87,0,1.65-0.36,2.23-0.93c0.59,0.57,1.39,0.93,2.29,0.93 c0.84,0,1.64-0.35,2.24-0.95c0.58,0.59,1.37,0.95,2.24,0.95c0.08,0,0.15-0.02,0.23-0.03V19H5z" />
+                        </g>
+                    </g>
+                </svg>
+                <span>Inventario</span>
+            </div>
+            <div class="botones" [routerLink]="['/home/clientes']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z" />
+                </svg>
+                <span>Clientes</span>
+            </div>
+            <div class="botones" [routerLink]="['/home/empleados']" [routerLinkActive]="['active']">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                    viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <g>
+                        <rect fill="none" height="24" width="24" y="0" />
+                    </g>
+                    <g>
+                        <g>
+                            <rect height="1.5" width="4" x="14" y="12" />
+                            <rect height="1.5" width="4" x="14" y="15" />
+                            <path
+                                d="M20,7h-5V4c0-1.1-0.9-2-2-2h-2C9.9,2,9,2.9,9,4v3H4C2.9,7,2,7.9,2,9v11c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V9 C22,7.9,21.1,7,20,7z M11,7V4h2v3v2h-2V7z M20,20H4V9h5c0,1.1,0.9,2,2,2h2c1.1,0,2-0.9,2-2h5V20z" />
+                            <circle cx="9" cy="13.5" r="1.5" />
+                            <path
+                                d="M11.08,16.18C10.44,15.9,9.74,15.75,9,15.75s-1.44,0.15-2.08,0.43C6.36,16.42,6,16.96,6,17.57V18h6v-0.43 C12,16.96,11.64,16.42,11.08,16.18z" />
+                        </g>
+                    </g>
+                </svg>
+                <span>Empleados</span>
+            </div>
+        </div>
+        <div class="footermenu">
+            <span (click)="salir()">Cerrar Sesión</span>
+        </div>
+    </div>
+
+    <div class="pantalla" id="Layer1" style="overflow-x:hidden; overflow-y:scroll;">
+        <div class="contenido">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div> -->
+
+<div class="pantallainicio">
+    <div class="side-bar">
+        <div class="menulateral2">
+
+            <div class="usuario">
+                <img [src]="foto == '' ? '../../../assets/img/VTSESION.png' : foto"
+                    [routerLink]="['/home/perfilusuario']" alt="Perfil usuario" title="Perfil De Usuario">
+
+                <div class="usuariosesion">
+                    <div class="activo"></div>
+                    <p>Hola {{ usuario }}</p>
+                </div>
+            </div>
+            <div class="item">
+                <a [routerLink]="['/home/dashboard']" [routerLinkActive]="['active']"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z" />
+                    </svg>Dashboard</a>
+            </div>
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/ventas']" [routerLinkActive]="['active']"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                    </svg>
+                    Ventas</a>
+                <!-- <div class="sub-menu">
+                    <a [routerLink]="['/home/ventas/factura']" [routerLinkActive]="['active']" class="sub-item">Nueva Factura</a>
+                    <a [routerLink]="['/home/ventas/facturas']" [routerLinkActive]="['active']" class="sub-item">Facturas</a>
+                </div> -->
+            </div>
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/multa']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" />
+                        </g>
+                        <g>
+                            <g>
+                                <path
+                                    d="M20,2H4C3,2,2,2.9,2,4v3.01C2,7.73,2.43,8.35,3,8.7V20c0,1.1,1.1,2,2,2h14c0.9,0,2-0.9,2-2V8.7c0.57-0.35,1-0.97,1-1.69V4 C22,2.9,21,2,20,2z M19,20H5V9h14V20z M20,7H4V4h16V7z" />
+                                <rect height="2" width="6" x="9" y="12" />
+                            </g>
+                        </g>
+                    </svg>
+                    Conexion/Multa</a>
+            </div>
+
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/lecturas']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM10 9h8v2h-8zm0 3h4v2h-4zm0-6h8v2h-8z" />
+                    </svg>
+                    Lecturas</a>
+            </div>
+
+            <!-- <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/emapa']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                    </svg>
+                    EMAPA PED</a>
+            </div> -->
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <!-- <div class="item" >
+                <a class="sub-btn" [routerLink]="['/home/proyeccion']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" x="0" />
+                        </g>
+                        <g>
+                            <g>
+                                <path
+                                    d="M23,8c0,1.1-0.9,2-2,2c-0.18,0-0.35-0.02-0.51-0.07l-3.56,3.55C16.98,13.64,17,13.82,17,14c0,1.1-0.9,2-2,2s-2-0.9-2-2 c0-0.18,0.02-0.36,0.07-0.52l-2.55-2.55C10.36,10.98,10.18,11,10,11c-0.18,0-0.36-0.02-0.52-0.07l-4.55,4.56 C4.98,15.65,5,15.82,5,16c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2c0.18,0,0.35,0.02,0.51,0.07l4.56-4.55C8.02,9.36,8,9.18,8,9 c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.18-0.02,0.36-0.07,0.52l2.55,2.55C14.64,12.02,14.82,12,15,12c0.18,0,0.36,0.02,0.52,0.07 l3.55-3.56C19.02,8.35,19,8.18,19,8c0-1.1,0.9-2,2-2S23,6.9,23,8z M23,8c0,1.1-0.9,2-2,2c-0.18,0-0.35-0.02-0.51-0.07l-3.56,3.55 C16.98,13.64,17,13.82,17,14c0,1.1-0.9,2-2,2s-2-0.9-2-2c0-0.18,0.02-0.36,0.07-0.52l-2.55-2.55C10.36,10.98,10.18,11,10,11 c-0.18,0-0.36-0.02-0.52-0.07l-4.55,4.56C4.98,15.65,5,15.82,5,16c0,1.1-0.9,2-2,2s-2-0.9-2-2s0.9-2,2-2 c0.18,0,0.35,0.02,0.51,0.07l4.56-4.55C8.02,9.36,8,9.18,8,9c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.18-0.02,0.36-0.07,0.52l2.55,2.55 C14.64,12.02,14.82,12,15,12c0.18,0,0.36,0.02,0.52,0.07l3.55-3.56C19.02,8.35,19,8.18,19,8c0-1.1,0.9-2,2-2S23,6.9,23,8z" />
+                            </g>
+                        </g>
+                    </svg>
+                    Proyección</a>
+            </div> -->
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/compras']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" />
+                        </g>
+                        <g>
+                            <g>
+                                <path
+                                    d="M20,2H4C3,2,2,2.9,2,4v3.01C2,7.73,2.43,8.35,3,8.7V20c0,1.1,1.1,2,2,2h14c0.9,0,2-0.9,2-2V8.7c0.57-0.35,1-0.97,1-1.69V4 C22,2.9,21,2,20,2z M19,20H5V9h14V20z M20,7H4V4h16V7z" />
+                                <rect height="2" width="6" x="9" y="12" />
+                            </g>
+                        </g>
+                    </svg>
+                    Compras</a>
+            </div>
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/productosservicios']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" />
+                        </g>
+                        <g>
+                            <g />
+                            <g>
+                                <path
+                                    d="M21.9,8.89l-1.05-4.37c-0.22-0.9-1-1.52-1.91-1.52H5.05C4.15,3,3.36,3.63,3.15,4.52L2.1,8.89 c-0.24,1.02-0.02,2.06,0.62,2.88C2.8,11.88,2.91,11.96,3,12.06V19c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2v-6.94 c0.09-0.09,0.2-0.18,0.28-0.28C21.92,10.96,22.15,9.91,21.9,8.89z M18.91,4.99l1.05,4.37c0.1,0.42,0.01,0.84-0.25,1.17 C19.57,10.71,19.27,11,18.77,11c-0.61,0-1.14-0.49-1.21-1.14L16.98,5L18.91,4.99z M13,5h1.96l0.54,4.52 c0.05,0.39-0.07,0.78-0.33,1.07C14.95,10.85,14.63,11,14.22,11C13.55,11,13,10.41,13,9.69V5z M8.49,9.52L9.04,5H11v4.69 C11,10.41,10.45,11,9.71,11c-0.34,0-0.65-0.15-0.89-0.41C8.57,10.3,8.45,9.91,8.49,9.52z M4.04,9.36L5.05,5h1.97L6.44,9.86 C6.36,10.51,5.84,11,5.23,11c-0.49,0-0.8-0.29-0.93-0.47C4.03,10.21,3.94,9.78,4.04,9.36z M5,19v-6.03C5.08,12.98,5.15,13,5.23,13 c0.87,0,1.66-0.36,2.24-0.95c0.6,0.6,1.4,0.95,2.31,0.95c0.87,0,1.65-0.36,2.23-0.93c0.59,0.57,1.39,0.93,2.29,0.93 c0.84,0,1.64-0.35,2.24-0.95c0.58,0.59,1.37,0.95,2.24,0.95c0.08,0,0.15-0.02,0.23-0.03V19H5z" />
+                            </g>
+                        </g>
+                    </svg>
+                    Inventario</a>
+                <!-- <div class="sub-menu">
+                    <a [routerLink]="['/home/productosservicios/inventario']" [routerLinkActive]="['active']" class="sub-item">Inventario</a>
+                    <a [routerLink]="['/home/productosservicios/inventarioasignado']" [routerLinkActive]="['active']" class="sub-item">Inventario Asignado</a>
+                    <a [routerLink]="['/home/productosservicios/inventarioesmeraldas']" [routerLinkActive]="['active']" class="sub-item">Inv Esmeraladas</a>
+                </div> -->
+
+            </div>
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/clientes']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M21 5v14h2V5h-2zm-4 14h2V5h-2v14zM14 5H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM8 7.75c1.24 0 2.25 1.01 2.25 2.25S9.24 12.25 8 12.25 5.75 11.24 5.75 10 6.76 7.75 8 7.75zM12.5 17h-9v-.75c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z" />
+                    </svg>
+                    Clientes</a>
+                <!-- <div class="sub-menu">
+                    <a [routerLink]="['/home/clientes/todosclientes']" [routerLinkActive]="['active']" class="sub-item">Clientes</a>
+                    <a [routerLink]="['/home/clientes/clientemedidor']" [routerLinkActive]="['active']" class="sub-item">Nuevo Medidor</a>
+                </div> -->
+            </div>
+
+            <!-- *ngIf="rol == 'ADMIN' || rol == 'ASISTENTE'" -->
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/empleados']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" y="0" />
+                        </g>
+                        <g>
+                            <g>
+                                <rect height="1.5" width="4" x="14" y="12" />
+                                <rect height="1.5" width="4" x="14" y="15" />
+                                <path
+                                    d="M20,7h-5V4c0-1.1-0.9-2-2-2h-2C9.9,2,9,2.9,9,4v3H4C2.9,7,2,7.9,2,9v11c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V9 C22,7.9,21.1,7,20,7z M11,7V4h2v3v2h-2V7z M20,20H4V9h5c0,1.1,0.9,2,2,2h2c1.1,0,2-0.9,2-2h5V20z" />
+                                <circle cx="9" cy="13.5" r="1.5" />
+                                <path
+                                    d="M11.08,16.18C10.44,15.9,9.74,15.75,9,15.75s-1.44,0.15-2.08,0.43C6.36,16.42,6,16.96,6,17.57V18h6v-0.43 C12,16.96,11.64,16.42,11.08,16.18z" />
+                            </g>
+                        </g>
+                    </svg>
+                    Empleados</a>
+                <!-- <div class="sub-menu">
+                    <a [routerLink]="['/home/empleados/todosempleados']" [routerLinkActive]="['active']">Empleados</a>
+                    <a [routerLink]="['/home/empleados/sueldos']" [routerLinkActive]="['active']">Sueldos</a>
+                    <a [routerLink]="['/home/empleados/sueldospagados']" [routerLinkActive]="['active']">Rol de pagos</a>
+
+                </div> -->
+            </div>
+            <div class="item">
+                <a class="sub-btn" [routerLink]="['/home/subir-sri']" [routerLinkActive]="['active']">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <g>
+                            <rect fill="none" height="24" width="24" y="0" />
+                        </g>
+                        <g>
+                            <g>
+                                <rect height="1.5" width="4" x="14" y="12" />
+                                <rect height="1.5" width="4" x="14" y="15" />
+                                <path
+                                    d="M20,7h-5V4c0-1.1-0.9-2-2-2h-2C9.9,2,9,2.9,9,4v3H4C2.9,7,2,7.9,2,9v11c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V9 C22,7.9,21.1,7,20,7z M11,7V4h2v3v2h-2V7z M20,20H4V9h5c0,1.1,0.9,2,2,2h2c1.1,0,2-0.9,2-2h5V20z" />
+                                <circle cx="9" cy="13.5" r="1.5" />
+                                <path
+                                    d="M11.08,16.18C10.44,15.9,9.74,15.75,9,15.75s-1.44,0.15-2.08,0.43C6.36,16.42,6,16.96,6,17.57V18h6v-0.43 C12,16.96,11.64,16.42,11.08,16.18z" />
+                            </g>
+                        </g>
+                    </svg>
+                    Subir Sri</a>
+                <!-- <div class="sub-menu">
+                    <a [routerLink]="['/home/empleados/todosempleados']" [routerLinkActive]="['active']">Empleados</a>
+                    <a [routerLink]="['/home/empleados/sueldos']" [routerLinkActive]="['active']">Sueldos</a>
+                    <a [routerLink]="['/home/empleados/sueldospagados']" [routerLinkActive]="['active']">Rol de pagos</a>
+
+                </div> -->
+            </div>
+
+            <!-- <div class="item"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+                        height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <g>
+                            <path d="M0,0h24v24H0V0z" fill="none" />
+                        </g>
+                        <g>
+                            <path
+                                d="M17,8l-1.41,1.41L17.17,11H9v2h8.17l-1.58,1.58L17,16l4-4L17,8z M5,5h7V3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h7v-2H5V5z" />
+                        </g>
+                    </svg>Cerrar Sesión</a></div> -->
+        </div>
+    </div>
+    <div class="pantalla" id="Layer1" style="overflow-x:hidden; overflow-y:scroll;">
+        <app-cerrarsesion></app-cerrarsesion>
+        <div class="contenido">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

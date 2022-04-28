@@ -1,0 +1,67 @@
+<h2>
+    Editar Multa
+</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <span>
+            <b>Barrio: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionedit.direccion_cli">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <span>
+            <b>Cliente: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionedit.apellidos_cli + ' ' + multaconexionedit.nombres_cli">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <span>
+            <b>Descripción del pago: </b>
+        </span>
+        <input matInput type="text" class="form-control" [(ngModel)]="multaconexionedit.descripcion_mul" (keyup.enter)="guardarCambios()">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Cedúla: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly [(ngModel)]="multaconexionedit.ciruc_cli">
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Fecha Creación Multa: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionedit.create_at">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Número de Socio: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionedit.id_cli">
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Valor: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionedit.valor_mul">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+        <button class="btn" (click)="guardarCambios()">Guardar Cambios</button>
+    </div>
+</div>

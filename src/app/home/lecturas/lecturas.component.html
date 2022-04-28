@@ -1,0 +1,11 @@
+<h2>Lecturas</h2>
+
+<!-- #enddocregion slow-animation-duration -->
+<!-- [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)" -->
+<mat-tab-group animationDuration="1000ms" >
+
+    <mat-tab label="Lecturas">
+        <app-dialoglecturas #lecturas></app-dialoglecturas>
+    </mat-tab>
+
+</mat-tab-group>

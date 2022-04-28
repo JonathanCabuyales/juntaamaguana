@@ -1,0 +1,2 @@
+[03-Aug-2021 04:43:22 UTC] PHP Parse error:  syntax error, unexpected end of file in /home1/vtproy20/public_html/contable/APIVTPROYECTOS/sueldos/sueldos_insert.php on line 53
+[03-Aug-2021 04:57:54 UTC] PHP Warning:  mysqli_query() expects at least 2 parameters, 1 given in /home1/vtproy20/public_html/contable/APIVTPROYECTOS/sueldos/sueldos_insert.php on line 63

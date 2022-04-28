@@ -1,0 +1,188 @@
+<div style="width: 96%; margin: 0 auto; margin-top: 10px;">
+    <div style="width: 100%; border: 1px solid #eeeeee; background-color: #eeeeee; border-radius: 10px; padding: 10px;">
+        <h4 style="background-color: #1d1d24; text-align: center; color: #fff;">Conexiones Nuevas</h4>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <p><b>Datos Del Cliente</b></p>
+            </div>
+            <div class="col-sm-3">
+                <p style="color: #40CD13;"><b>Buscar Socio: </b>
+                    <svg (click)="buscarSocio()" class="svgInput" xmlns="http://www.w3.org/2000/svg" height="24px"
+                        viewBox="0 0 24 24" width="24px" fill="#40CD13">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    </svg>
+                </p>
+            </div>
+            <div class="col-sm-7"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <span><b>Número Socio: </b></span>
+                <input type="text" matInput class="form-control" [(ngModel)]="cliente.id_cli" disabled>
+            </div>
+            <div class="col-sm-4">
+                <span><b>Socio: </b></span>
+                <input type="text" matInput class="form-control" [(ngModel)]="cliente.nombres_cli + ' ' + cliente.apellidos_cli" disabled>
+            </div>
+            <div class="col-sm-3">
+                <span><b>C.I / RUC: </b></span>
+                <input type="text" matInput class="form-control" [(ngModel)]="cliente.ciruc_cli" disabled>
+            </div>
+            <div class="col-sm-3">
+                <span><b>Barrio: </b></span>
+                <input type="text" matInput class="form-control" [(ngModel)]="cliente.direccion_cli" disabled>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <select style="width: 100%; border-radius: 5px; padding: 10px;" [(ngModel)]="tipo">
+                    <option value="0">Seleccione una opción</option>
+                    <option value="CONEXION">Conexion nueva</option>
+                    <option value="MATERIAL">Material</option>
+                    <option value="MEDIDOR NUEVO">Medidor nuevo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div
+        style="width: 100%; border: 1px solid #eeeeee; background-color: #eeeeee; border-radius: 10px; padding: 10px; margin: 10px 0;">
+
+        <button class="btn" (click)="loadMateriales()">Buscar Material
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+            </svg>
+        </button>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-2">
+                <span><b>Descripción: </b></span>
+                <input matInput class="form-control" type="text" style="font-size: 12px;" [(ngModel)]="item.descripcion_proser" disabled>
+            </div>
+            <div class="col-sm-2">
+                <span><b>Stock: </b></span>
+                <input matInput type="number" class="form-control" [(ngModel)]="item.cantidadfinal_proser" disabled>
+            </div>
+            <div class="col-sm-2">
+                <span><b>Precio: </b></span>
+                <input matInput type="number" class="form-control" [(ngModel)]="item.precio_proser" disabled>
+            </div>
+            <div class="col-sm-2">
+                <span><b>Cantidad: </b></span>
+                <input matInput type="number" class="form-control" [(ngModel)]="cantidaditem" (keyup)="calcularItem()">
+            </div>
+            <div class="col-sm-2">
+                <span><b>Total: </b></span>
+                <input matInput class="form-control" type="text" [(ngModel)]="totalitem" disabled>
+            </div>
+            <div class="col-sm-2">
+                <span><b>Añadir: </b></span>
+                <br>
+                <button class="btn btnAceptar" (click)="sumarItem()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="descripcion">
+                    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                    <td mat-cell *matCellDef="let element"><b> {{element.nombre_proser}} </b></td>
+                </ng-container>
+
+                <ng-container matColumnDef="cantidad">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Cantidad </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.cantidadvendida}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="total">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Subtotal </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{ element.total }} $
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="eliminar">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;">Eliminar</th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center;">
+                        <button mat-icon-button (click)="borrarItems(element)">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <br>
+                        <div class="camposcompras">
+                            <label>Subtotal 12%</label><input style="text-align: right;" type="number"
+                                [(ngModel)]="subtotal12" disabled>
+                        </div>
+                        <div class="camposcompras">
+                            <label>Subtotal 0%</label><input style="text-align: right;" type="number"
+                                [(ngModel)]="subtotal0" disabled>
+                        </div>
+                        <div class="camposcompras">
+                            <label>IVA 12%</label><input style="text-align: right;" type="number" [(ngModel)]="iva"
+                                disabled>
+                        </div>
+                        <div class="camposcompras">
+                            <label>Total</label><input style="text-align: right;" type="number"
+                                [(ngModel)]="totalFactura" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btncancelar" (click)="cancelarItems()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" opacity=".87" />
+                        <path
+                            d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z" />
+                    </svg>
+                    Cancelar </button>
+
+                <button class="btn btngrabar" (click)="grabarConexion()"> <svg xmlns="http://www.w3.org/2000/svg"
+                        height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z" />
+                    </svg> Registrar Conexión </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

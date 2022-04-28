@@ -1,0 +1,64 @@
+<h2>
+    Cobro Multa/Conexion/Materiales
+</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <span>
+            <b>Barrio: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionCobrar.direccion_cli">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Cliente: </b>
+        </span>
+        <input matInput type="text" style="font-size: 12px;" class="form-control" readonly [(ngModel)]="multaconexionCobrar.apellidos_cli + ' ' + multaconexionCobrar.nombres_cli">
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Cédula: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly [(ngModel)]="multaconexionCobrar.ciruc_cli">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Descripción del pago: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly [(ngModel)]="multaconexionCobrar.descripcion_mul">
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Fecha Creación: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionCobrar.create_at">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span>
+            <b>Valor: </b>
+        </span>
+        <input matInput type="text" class="form-control" readonly="readonly" [(ngModel)]="multaconexionCobrar.saldo_mul">
+    </div>
+    <div class="col-sm-6">
+        <span>
+            <b>Valor Recibido: </b>
+        </span>
+        <input matInput type="number" style="text-align: right;" class="form-control" [(ngModel)]="valorrecibido" (keyup.enter)="guardarCambios()">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6"></div>
+    <div class="col-sm-6">
+        <button class="btn" (click)="guardarCambios()">Guardar Cambios</button>
+    </div>
+</div>

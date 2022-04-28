@@ -1,0 +1,19 @@
+<h3>Mutlas, Conexiones Nuevas, Materiales, Sesiones.</h3>
+<!-- <router-outlet></router-outlet> -->
+<!-- #docregion slow-animation-duration -->
+<mat-tab-group animationDuration="1000ms" >
+    
+    <!-- [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)" -->
+    <mat-tab label="Multas">
+        <app-dialogmultas></app-dialogmultas>
+    </mat-tab>
+
+    <mat-tab label="Conexión Nueva">
+        <app-dialogconexionnueva></app-dialogconexionnueva>
+    </mat-tab>
+
+    <mat-tab label="Reporte">
+        <app-dialogmultareporte></app-dialogmultareporte>
+    </mat-tab>
+
+</mat-tab-group>

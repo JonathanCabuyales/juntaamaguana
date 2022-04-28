@@ -1,0 +1,9 @@
+<h3>Proyecciones</h3>
+
+<mat-tab-group animationDuration="1000ms" [selectedIndex]="active" (selectedIndexChange)="onTabChange($event)">
+    
+    <mat-tab label="Proyección">
+        <app-dialogrendimientoproyecto #calculoproyeccion></app-dialogrendimientoproyecto>
+    </mat-tab>
+
+</mat-tab-group>

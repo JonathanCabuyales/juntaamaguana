@@ -1,0 +1,22 @@
+<h2 style="text-align: center;">Equipo Minimo</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <span><b>Detalle: </b></span>
+        <input type="text" class="form-control" placeholder="Detalle" [(ngModel)]="equipominimo.detalle">
+    </div>
+    <div class="col-sm-6">
+        <span><b>Cantidad: </b></span>
+        <input type="number" style="text-align: right;" class="form-control" placeholder="Cantidad" [(ngModel)]="equipominimo.cantidad">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <span><b>Valor: </b></span>
+        <input type="number" style="text-align: right;" class="form-control" placeholder="Valor" [(ngModel)]="equipominimo.valor">
+    </div>
+    <div class="col-sm-6">
+        <button class="btn" (click)="grabarEquipoMinimo()">Registrar</button>
+
+    </div>
+</div>
