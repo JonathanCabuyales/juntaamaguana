@@ -169,7 +169,7 @@ export class DialogporcobrarComponent implements OnInit {
           if(respGetId.data.length === 0){
             if((prefactura.ciruc_cli) === '1700000000'){
               this.enviarFacturaInsert.tipoIdentificacionComprador = '07';
-              this.enviarFacturaInsert.ciruc_cliente = '9999999999999';
+              this.enviarFacturaInsert.ciruc_cliente = '9999999999';
               this.enviarFacturaInsert.cliente_tipo = 'CONSUMIDOR FINAL'
             }else if((prefactura.ciruc_cli).length === 10){
               this.enviarFacturaInsert.tipoIdentificacionComprador = '05';
@@ -204,15 +204,21 @@ export class DialogporcobrarComponent implements OnInit {
 
             console.log(this.enviarFacturaInsert);
 
-            this._factura.createFactura(this.enviarFacturaInsert)
-            .subscribe((respXML) =>{
-              console.log(respXML);
+            // this._factura.createFactura(this.enviarFacturaInsert)
+            // .subscribe((respXML) =>{
+            //   console.log(respXML);
 
-              this.enviarFacturaInsert.claveacceso = respXML.claveacceso;
+              this.enviarFacturaInsert.claveacceso = '';
               this._factura.insertFactura(this.enviarFacturaInsert).
               subscribe((respInsert) =>{
                 console.log('se inserto correctamente', respInsert);
 
+                let ruta_certificado = "https://contable.jaapssa.com/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
+                // let pwd_p12 = "Caizad2021";
+                let pwd_p12 = "junta123";
+                let ruta_respuesta = "https://contable.jaapssa.com/libreria_2021/example.php";
+                // let ruta_factura = "https://contable.jaapssa.com/libreria_2021/xmlgenerados/"+respXML.claveacceso+".xml";
+                // obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta, ruta_factura, respXML.claveacceso);
                 this._prefactura.cobrarPrefactura(prefactura)
                 .subscribe((respPrefactura) =>{
                   console.log('prefactura ', respPrefactura);
@@ -222,20 +228,14 @@ export class DialogporcobrarComponent implements OnInit {
                   this.showimg = true;
                   this.showtableconvenio = false;
                   this.showtable = false;
-                  if(respXML.claveacceso.length > 2){
-                    let ruta_certificado = "http://localhost/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
-                    // let pwd_p12 = "Caizad2021";
-                    let pwd_p12 = "junta123";
-                    let ruta_respuesta = "http://localhost/libreria_2021/example.php";
-                    let ruta_factura = "http://localhost/libreria_2021/xmlgenerados/"+respXML.claveacceso+".xml";
-                    obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta, ruta_factura, respXML.claveacceso);
-                  }
+                  /* if(respXML.claveacceso.length > 2){
+                  } */
                   
                 });
                 
               });
               
-            });
+            // });
             
             
 
@@ -260,6 +260,31 @@ export class DialogporcobrarComponent implements OnInit {
                 });
               }); */
           }else{
+            if((prefactura.ciruc_cli) === '1700000000'){
+              this.enviarFacturaInsert.tipoIdentificacionComprador = '07';
+              this.enviarFacturaInsert.ciruc_cliente = '9999999999';
+              this.enviarFacturaInsert.cliente_tipo = 'CONSUMIDOR FINAL'
+            }else if((prefactura.ciruc_cli).length === 10){
+              this.enviarFacturaInsert.tipoIdentificacionComprador = '05';
+              this.enviarFacturaInsert.cliente = prefactura.nombres_cli + " " + prefactura.apellidos_cli;
+              this.enviarFacturaInsert.ciruc_cliente = prefactura.ciruc_cli;
+              this.enviarFacturaInsert.cliente_tipo = prefactura.nombres_cli + " " + prefactura.apellidos_cli;
+              
+              
+            }else{
+              this.enviarFacturaInsert.tipoIdentificacionComprador = '04';
+              this.enviarFacturaInsert.cliente = prefactura.nombres_cli + " " + prefactura.apellidos_cli;
+              this.enviarFacturaInsert.ciruc_cliente = prefactura.ciruc_cli;
+              this.enviarFacturaInsert.cliente_tipo = prefactura.nombres_cli + " " + prefactura.apellidos_cli;
+              
+            }
+  
+            if(prefactura.email === '1@hotmail.com'){
+              this.enviarFacturaInsert.email_cli = 'jaapsa17@hotmail.com';
+  
+            }else{
+              this.enviarFacturaInsert.email_cli = prefactura.email_cli;
+            }
             this.enviarFacturaInsert = {
               ...prefactura,
               servicios_prefac: JSON.stringify(prefactura.servicios_prefac),
@@ -267,9 +292,9 @@ export class DialogporcobrarComponent implements OnInit {
               generada_prefac: "0",
               secuencial: parseInt(respGetId.data[0].secuencial) + 1
             };
-            if((prefactura.ciruc_cli) === '1700000000'){
+            /* if((prefactura.ciruc_cli) === '1700000000'){
               this.enviarFacturaInsert.tipoIdentificacionComprador = '07';
-              this.enviarFacturaInsert.ciruc_cliente = '9999999999999';
+              this.enviarFacturaInsert.ciruc_cliente = '9999999999';
               this.enviarFacturaInsert.cliente_tipo = 'CONSUMIDOR FINAL';
             }else if(parseInt(prefactura.ciruc_cli).toString().length === 10){
               this.enviarFacturaInsert.tipoIdentificacionComprador = '05';
@@ -289,19 +314,25 @@ export class DialogporcobrarComponent implements OnInit {
   
             }else{
               this.enviarFacturaInsert.email_cli = prefactura.email_cli;
-            }
+            } */
 
             console.log(this.enviarFacturaInsert);
 
-            this._factura.createFactura(this.enviarFacturaInsert)
-            .subscribe((respXML) =>{
-              console.log('enviar xml', respXML);
+            // this._factura.createFactura(this.enviarFacturaInsert)
+            // .subscribe((respXML) =>{
+            //   console.log('enviar xml', respXML);
 
-              this.enviarFacturaInsert.claveacceso = respXML.claveacceso;
+              this.enviarFacturaInsert.claveacceso = '';
               this._factura.insertFactura(this.enviarFacturaInsert)
               .subscribe((respFactura) =>{
                 console.log('respuesta Factura ', respFactura);
-
+                let ruta_certificado = "https://contable.jaapssa.com/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
+                // let pwd_p12 = "Caizad2021";
+                let pwd_p12 = "junta123";
+                let ruta_respuesta = "https://contable.jaapssa.com/libreria_2021/example.php";
+                // let ruta_factura = "https://contable.jaapssa.com/libreria_2021/xmlgenerados/"+respXML.claveacceso+".xml";
+                // obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta, ruta_factura, respXML.claveacceso);
+                
                 this._prefactura.cobrarPrefactura(prefactura)
                 .subscribe((respPrefactura) =>{
                   console.log('prefactura cobrada', respPrefactura);
@@ -311,20 +342,14 @@ export class DialogporcobrarComponent implements OnInit {
                   this.showimg = true;
                   this.showtableconvenio = false;
                   this.showtable = false;
-                  if(respXML.claveacceso.length > 2){
-                    let ruta_certificado = "http://localhost/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
-                    // let pwd_p12 = "Caizad2021";
-                    let pwd_p12 = "junta123";
-                    let ruta_respuesta = "http://localhost/libreria_2021/example.php";
-                    let ruta_factura = "http://localhost/libreria_2021/xmlgenerados/"+respXML.claveacceso+".xml";
-                    obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta, ruta_factura, respXML.claveacceso);
-                  }
+                  /* if(respXML.claveacceso.length > 2){
+                  } */
                   
                 });
                 
               });
               
-            });
+            // });
             
            /*  this.enviarFacturaInsert = {
               ...prefactura,

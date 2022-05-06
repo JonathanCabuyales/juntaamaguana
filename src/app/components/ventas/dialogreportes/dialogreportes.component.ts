@@ -232,4 +232,9 @@ export class DialogreportesComponent implements OnInit {
     });
   }
 
+  facturasGeneradas(){
+    console.log('generar facturas');
+    
+  }
+
 }

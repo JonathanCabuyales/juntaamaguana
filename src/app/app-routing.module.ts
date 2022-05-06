@@ -75,12 +75,13 @@ const routes: Routes = [
     ] },
 
     { path: 'perfilusuario', component: PerfilusuarioComponent},
-    {
-      path: 'subir-sri', component: GenerarFacturasComponent
-    }
+    
     
     
   ]
+},
+{
+  path: 'subir-sri/:texto', component: GenerarFacturasComponent
 }
 ];
 

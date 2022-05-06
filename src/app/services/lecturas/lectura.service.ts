@@ -23,6 +23,11 @@ export class LecturaService {
     return this.resultado;
   }
 
+  actualizarLectura(data: any){
+    this.resultado = this.http.post(`${this.baseUrl}/lecturas/lectura_edit.php`, JSON.stringify(data));
+    return this.resultado;
+  }
+
   getLecturasMensuales() {
     this.resultado = this.http.get(`${this.baseUrl}/lecturas/lectura_mensual_get.php`);
     return this.resultado;

@@ -42,25 +42,34 @@ export class LoginComponent implements OnInit {
     } else {
 
       this._login.login(this.user, this.password).subscribe(res=>{
+        console.log(res);
+
+        if(res.encontrado){
+          this.router.navigate(['home/dashboard']);          
+          // this.cookieService.set('token', res.access_token);
+
+          this.toastSuccess("Hola de nuevo " + res.username);
+
+        }else{
+          Swal.fire({
+            icon: 'warning',
+            confirmButtonColor: '#1d1d24',
+            text: 'Usuario o Contraseña incorrectos.'
+          });
+          this.cookieService.deleteAll();
+          this.router.navigate(['']);
+        }
         
-        // if (res.status == 'success'){
-        //   console.log(res);
+        
+        /* if (res.encontrado){
+          console.log(res);
           
-        //   this.router.navigate(['home/dashboard']);          
-        //   this.cookieService.set('token', res.access_token);
+          
 
-        //   this.toastSuccess("Hola de nuevo " + res.username);
-
-        // } else {
-        //   Swal.fire({
-        //     icon: 'warning',
-        //     confirmButtonColor: '#1d1d24',
-        //     text: 'Usuario o Contraseña incorrectos.'
-        //   });
-        //   this.cookieService.deleteAll();
-        //   this.router.navigate(['']);
-        // }
-
+        } else {
+          
+        }
+ */
       });
     }
 

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { PrefacturaService } from 'src/app/services/prefactura.service';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -8,13 +11,34 @@ import * as XLSX from 'xlsx';
 })
 export class GenerarFacturasComponent implements OnInit {
 
+  displayedColumns: string[] = ['Id', 'cedula', 'nombre', 'total', 'acciones'];
+  dataFactura: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator:  MatPaginator;
+
   file: File;
   arrayBuffer: any;
   fileList: any;
 
-  constructor() { }
+  fechaDesde: any = '';
+  fechaHasta: any = '';
+
+  constructor(
+    private _prefactura: PrefacturaService
+  ) { }
 
   ngOnInit(): void {
+    this.dataFactura = new MatTableDataSource([]);
+    this.dataFactura.paginator = this.paginator;
+  }
+
+  traerFacturasGeneradas(){
+    this._prefactura.getReportePrefactura(this.fechaDesde, this.fechaHasta)
+    .subscribe((resp) =>{ 
+      console.log(resp);
+      
+    });
+    
   }
 
   cambioArchivo(evento: any){

@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BdemapaService } from 'src/app/services/bdemapa.service';
 import { LecturaService } from 'src/app/services/lecturas/lectura.service';
 import { DialoglecturascreateComponent } from '../dialoglecturascreate/dialoglecturascreate.component';
+import { EditlecturasComponent } from '../editlecturas/editlecturas.component';
 
 @Component({
   selector: 'app-dialoglecturas',
@@ -14,7 +15,7 @@ import { DialoglecturascreateComponent } from '../dialoglecturascreate/dialoglec
 })
 export class DialoglecturasComponent implements OnInit {
 
-  displayedColumns: string[] = ['socio', 'nombre', 'barrio', 'fechaanterior', 'lecturaant', 'fechaact', 'lecact', 'consumo', 'foto'];
+  displayedColumns: string[] = ['socio', 'nombre', 'barrio', 'fechaanterior', 'lecturaant', 'fechaact', 'lecact', 'consumo', 'foto', 'acciones'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -45,27 +46,55 @@ export class DialoglecturasComponent implements OnInit {
       this.showbtncrear = false;
 
     } else {
-      this._lectura.getLecturasCliente(this.socio).subscribe(res => {
-
-        if (res.length) {
-
-          this.listalecturas = res;
-          this.dataSource = new MatTableDataSource(this.listalecturas);
-          this.dataSource.paginator = this.paginator;
-          this.showbtncrear = true;
-
-        } else {
-
-          this.toastError("El socio no registra leturas, verifique el número e intentelo nuevamente.");
-          this.listalecturas = [];
-          this.dataSource = new MatTableDataSource(this.listalecturas);
-          this.dataSource.paginator = this.paginator;
-          this.showbtncrear = false;
-
-        }
-
-      });
+      this.lecturasSocios();
     }
+  }
+
+  editLectura(element: any){
+    
+    const ref = this.dialog.open(EditlecturasComponent, {
+      data: element,
+      disableClose: true
+    });
+
+    ref.afterClosed().subscribe((resp) =>{
+      console.log(resp);
+      
+      if(resp.cerrar){
+        this._lectura.actualizarLectura(resp)
+        .subscribe((respUpdated) =>{
+            this.lecturasSocios();
+        });
+      }else{
+
+      }
+      
+      
+    });
+    
+  }
+
+  lecturasSocios(){
+    this._lectura.getLecturasCliente(this.socio).subscribe(res => {
+
+      if (res.length) {
+
+        this.listalecturas = res;
+        this.dataSource = new MatTableDataSource(this.listalecturas);
+        this.dataSource.paginator = this.paginator;
+        this.showbtncrear = true;
+
+      } else {
+
+        this.toastError("El socio no registra leturas, verifique el número e intentelo nuevamente.");
+        this.listalecturas = [];
+        this.dataSource = new MatTableDataSource(this.listalecturas);
+        this.dataSource.paginator = this.paginator;
+        this.showbtncrear = false;
+
+      }
+
+    });
   }
 
   crearlectura() {
@@ -77,27 +106,31 @@ export class DialoglecturasComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe(res => {
+      this.getLecturasCliente();
+      
 
-      this._lectura.getLecturasCliente(this.socio).subscribe(res => {
+    });
+  }
 
-        if (res.length) {
+  getLecturasCliente(){
+    this._lectura.getLecturasCliente(this.socio).subscribe(res => {
 
-          this.listalecturas = res;
-          this.dataSource = new MatTableDataSource(this.listalecturas);
-          this.dataSource.paginator = this.paginator;
-          this.showbtncrear = true;
+      if (res.length) {
 
-        } else {
+        this.listalecturas = res;
+        this.dataSource = new MatTableDataSource(this.listalecturas);
+        this.dataSource.paginator = this.paginator;
+        this.showbtncrear = true;
 
-          this.toastError("El socio no registra leturas, verifique el número e intentelo nuevamente.");
-          this.listalecturas = [];
-          this.dataSource = new MatTableDataSource(this.listalecturas);
-          this.dataSource.paginator = this.paginator;
-          this.showbtncrear = false;
+      } else {
 
-        }
+        this.toastError("El socio no registra leturas, verifique el número e intentelo nuevamente.");
+        this.listalecturas = [];
+        this.dataSource = new MatTableDataSource(this.listalecturas);
+        this.dataSource.paginator = this.paginator;
+        this.showbtncrear = false;
 
-      });
+      }
 
     });
   }

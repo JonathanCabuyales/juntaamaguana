@@ -317,10 +317,17 @@ export class DialogcrearprefacComponent implements OnInit {
       this.showvalores = true;
       this.showvalorprefac = false;
 
+      // console.log(this.lecturaactual);
+      
+
       if (parseInt(this.lecturaactual) >= 0 && parseInt(this.lecturaactual) <= 17) {
 
-        if (this.listaservicios.length) {
+        console.log(this.lecturaactual, this.listaservicios.length);
+        
 
+        if (this.listaservicios.length) {
+          console.log('siempre va a entrar aqui');
+          
           // consumo sin excendentes paga lo basico 
           // cuando tiene facturas vencidas se actualiza el la factura creada con el interes y se añade el valor del mes actual
           // console.log("tiene facturas vencidas");
@@ -346,7 +353,8 @@ export class DialogcrearprefacComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
 
         } else if (parseInt(this.lecturaactual) < 17) {
-
+          console.log('posible entra aqui');
+          
           // consumo sin excendentes paga lo basico 
           // cuando no tiene facturas vencidad solo se crea la factura del mes actual
           // console.log("no tiene facturas vencidas");
@@ -376,20 +384,24 @@ export class DialogcrearprefacComponent implements OnInit {
         }
 
       } else {
-
+        console.log('entra a mayores ', this.excedente);
+        
         let totalexcedente = 0;
         this.excedente = this.lecturaactual - 17;
         // console.log(this.excedente);
 
         if (this.excedente <= 30) {
-
+          console.log('entra en excedente menor a 30');
+          
           totalexcedente = (this.excedente * 0.22) + 3.15;
-
+          
         } else if (this.excedente >= 31 && this.excedente <= 60) {
-
+          console.log('entra en excedente entre');
+          
           totalexcedente = (this.excedente * 0.25) + 3.25;
-
+          
         } else if (this.excedente > 60) {
+          console.log('entra en excedente mayor');
 
           totalexcedente = (this.excedente * 0.3) + 3.5;
 

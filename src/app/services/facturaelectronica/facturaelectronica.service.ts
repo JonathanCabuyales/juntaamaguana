@@ -20,7 +20,7 @@ export class FacturaelectronicaService {
   createFactura(prefactura: any){
     // console.log(id_prefactura);
     
-    this.resultado = this.http.post(`http://localhost/libreria_2021/generar_xml.php`, JSON.stringify(prefactura));
+    this.resultado = this.http.post(`https://contable.jaapssa.com/libreria_2021/generar_xml.php`, JSON.stringify(prefactura));
     return this.resultado;
   }
 

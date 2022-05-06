@@ -1,0 +1,25 @@
+<h3>Modificar Lectura</h3>
+
+<div>
+    <p><b>Nro:</b>{{ data.id_med }}</p>
+    <p><b>Socio:</b> {{data.nombres_cli}} {{data.apellidos_cli}} </p>
+</div>
+
+<div class="row">
+    <div class="col">
+        <p><b>Lectura actual: </b>{{ data.lecturaact_lec }}</p>
+    </div>
+    <div class="col">
+        <span class="spanFactura"><b>Corregir Lectura:</b></span>
+        <input type="number" class="form-control" [(ngModel)]="corregir" placeholder="Nueva Lectura" />
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        <button style="height: 48px;" class="btn btncancelar" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+    <div class="col">
+        <button (click)="modificarLectura()" class="btn btnAceptar" type="button">Modificar</button>
+    </div>
+</div>

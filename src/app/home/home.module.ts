@@ -40,6 +40,21 @@ import { GenerarFacturasComponent } from './generar-facturas/generar-facturas.co
       echarts: () => import('echarts')
     }),
     MatProgressSpinnerModule
+  ],
+  exports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatTabsModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

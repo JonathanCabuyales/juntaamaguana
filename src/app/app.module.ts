@@ -143,6 +143,8 @@ import { DialoginventariomulComponent } from './components/multas/dialoginventar
 import { DialogeditinventarioComponent } from './components/inventario/dialogeditinventario/dialogeditinventario.component';
 import { DialogcobrosComponent } from './components/dashboard/dialogcobros/dialogcobros.component';
 import { DialogconsumoaguaComponent } from './components/dashboard/dialogconsumoagua/dialogconsumoagua.component';
+import { EditlecturasComponent } from './components/lecturas/editlecturas/editlecturas.component';
+import { GenerarFacturasComponent } from './home/generar-facturas/generar-facturas.component';
 
 @NgModule({
   declarations: [
@@ -225,7 +227,8 @@ import { DialogconsumoaguaComponent } from './components/dashboard/dialogconsumo
     DialoginventariomulComponent,
     DialogeditinventarioComponent,
     DialogcobrosComponent,
-    DialogconsumoaguaComponent
+    DialogconsumoaguaComponent,
+    EditlecturasComponent,
     ],
   imports: [
     BrowserModule,
@@ -269,7 +272,7 @@ import { DialogconsumoaguaComponent } from './components/dashboard/dialogconsumo
     }
 ],
   entryComponents:[DialogProSerComponent],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
   
 })
 export class AppModule { }
