@@ -20,7 +20,7 @@ export class FacturaelectronicaService {
   createFactura(prefactura: any){
     // console.log(id_prefactura);
     
-    this.resultado = this.http.post(`https://contable.jaapssa.com/libreria_2021/generar_xml.php`, JSON.stringify(prefactura));
+    this.resultado = this.http.post(`http://localhost/libreria_2021/generar_xml.php`, JSON.stringify(prefactura));
     return this.resultado;
   }
 
@@ -35,8 +35,13 @@ export class FacturaelectronicaService {
     return this.resultado;
   }
 
-  getFacturaGenerada(token: any){
-    this.resultado = this.http.get(`${this.baseUrl}/factura/get_factura.php?token=${token}`);
+  updateFactura(claveacceso: any, id_prefac: any){
+    this.resultado = this.http.get(`${this.baseUrl}/factura/factura_update_clave.php?claveacceso=${claveacceso}&id=${id_prefac}`);
+    return this.resultado;
+  }
+
+  getFacturaGenerada(){
+    this.resultado = this.http.get(`${this.baseUrl}/factura/get_factura.php`);
     return this.resultado;
   }
 

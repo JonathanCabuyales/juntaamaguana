@@ -17,40 +17,56 @@
     </div>
     
     <!-- <div class="row mt-3">
-        <label for="excel">Elegir un archivo (excel)</label>
+        <label for="excel">Eleir un archivo (excel)</label>
         <input type="file" style="display: block;" accept=".xlsx, .xls" class="form-control" id="excel" (change)="cambioArchivo($event)">
     </div> -->
 </div>
 
 
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataFactura" matSort>
-        <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-            <td mat-cell *matCellDef="let element" style="font-size: 12px;"> {{ element.id_cli }} </td>
+<div class="row mt-5" *ngIf="mostrarTrabla">
+    
+</div>
+<div class="row mt-5" class="mat-elevation-z8" *ngIf="mostrarTrabla">
+    <table mat-table #table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id_prefac">
+            <th mat-header-cell *matHeaderCellDef> Id Prefactura </th>
+            <td mat-cell *matCellDef="let row"> {{row.id_prefac}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Idcliente">
+            <th mat-header-cell *matHeaderCellDef> Id Cliente </th>
+            <td mat-cell *matCellDef="let row"> {{row.id_cli}} </td>
         </ng-container>
         <ng-container matColumnDef="cedula">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cedula </th>
-            <td mat-cell *matCellDef="let element" style="font-size: 12px;"> {{ element.id_cli }} </td>
+            <th mat-header-cell *matHeaderCellDef> Cedula </th>
+            <td mat-cell *matCellDef="let row"> {{row.ciruc_cli}} </td>
         </ng-container>
         <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-            <td mat-cell *matCellDef="let element" style="font-size: 12px;"> {{ element.id_cli }} </td>
+            <th mat-header-cell *matHeaderCellDef> nombre </th>
+            <td mat-cell *matCellDef="let row"> {{row.nombres_cli }} {{row.apellidos_cli}} </td>
         </ng-container>
-        <ng-container matColumnDef="total">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
-            <td mat-cell *matCellDef="let element" style="font-size: 12px;"> {{ element.id_cli }} </td>
+        <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let row"> {{row.total_prefac}} </td>
         </ng-container>
-        <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-            <td mat-cell *matCellDef="let element" style="font-size: 12px;"> {{ element.id_cli }} </td>
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef> 
+                Acciones 
+                <!-- <div *ngIf="mostrarTrabla">
+                    <input type="checkbox" class="form-check" name="todo" (change)="seleccionar($event)" id="selecc" />
+                    <label for="selecc">25</label>
+                </div> -->
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <div class="col">
+                    <button type="button" (click)="seleccionar(row)" class="btnagregar" >Generar Factura</button>
+                </div>
+            </td>
         </ng-container>
-        
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator class="piepaginaTables" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
+    <mat-paginator class="piepaginaTables" [pageSizeOptions]="[25, 50, 75]" showFirstLastButtons></mat-paginator>
 </div>
 
 

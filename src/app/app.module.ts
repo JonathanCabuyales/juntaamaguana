@@ -145,6 +145,7 @@ import { DialogcobrosComponent } from './components/dashboard/dialogcobros/dialo
 import { DialogconsumoaguaComponent } from './components/dashboard/dialogconsumoagua/dialogconsumoagua.component';
 import { EditlecturasComponent } from './components/lecturas/editlecturas/editlecturas.component';
 import { GenerarFacturasComponent } from './home/generar-facturas/generar-facturas.component';
+import { CovertirPipe } from './pipes/covertir.pipe';
 
 @NgModule({
   declarations: [
@@ -229,6 +230,8 @@ import { GenerarFacturasComponent } from './home/generar-facturas/generar-factur
     DialogcobrosComponent,
     DialogconsumoaguaComponent,
     EditlecturasComponent,
+    GenerarFacturasComponent,
+    CovertirPipe
     ],
   imports: [
     BrowserModule,
@@ -272,7 +275,8 @@ import { GenerarFacturasComponent } from './home/generar-facturas/generar-factur
     }
 ],
   entryComponents:[DialogProSerComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CovertirPipe]
   
 })
 export class AppModule { }

@@ -40,7 +40,7 @@ export class DialogconvenioComponent implements OnInit {
   fondosocial: any;
 
   prefacturavalorinicial: PrefacturaI;
-  itemsprefactura: ItemsprefacturaI[];
+  itemsprefactura: ItemsprefacturaI[] = [];
 
   fechaactual: any;
 
@@ -130,6 +130,8 @@ export class DialogconvenioComponent implements OnInit {
   }
 
   registrarConvenio() {
+    console.log('entra convenio');
+    
     if (this.pagos == '' || this.pagos == '0') {
       Swal.fire({
         icon: 'warning',
@@ -137,6 +139,8 @@ export class DialogconvenioComponent implements OnInit {
         text: 'Debe Seleccionar el número de pagos del convenio para continuar'
       });
     } else {
+      console.log('no esta vacio');
+      
       // mensaje de confirmacion al realizar un registro, actualizar o elimniar
 
       if (this.valorinicial == '' || this.valorinicial == undefined) {
@@ -197,7 +201,8 @@ export class DialogconvenioComponent implements OnInit {
         });
 
       } else {
-
+        console.log('tiene valor inicial');
+        
         // si tiene un valor inicial se procede a crear una nueva prefactura con el valor inicial 
         // se actualiza la prefactura existente con el saldo de la factura
         // el fondo social acumulado se cobra en esta prefactura (total)
@@ -240,7 +245,8 @@ export class DialogconvenioComponent implements OnInit {
           this.valorCuota = calculo.toFixed(2);
           this.numeroPagos = 6;
         }
-
+        console.log(this.itemsprefactura);
+        
         this.itemsprefactura[0].descripcion_proser = 'VALOR INICIAL, CONVENIO DE PAGO';
         // prefactura para crear
         this.prefacturavalorinicial.id_cli = this.prefacturaConvenio.id_cli;

@@ -19,9 +19,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GenerarFacturasComponent } from './generar-facturas/generar-facturas.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
-  declarations: [GenerarFacturasComponent],
+  declarations: [],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -54,7 +55,8 @@ import { GenerarFacturasComponent } from './generar-facturas/generar-facturas.co
     MatTabsModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ]
 })
 export class HomeModule { }

@@ -43,7 +43,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Detalles </th>
             <td mat-cell *matCellDef="let element" style="font-size: 12px;">
                 <br>
-                <p *ngFor="let servicios of element.servicios_prefac ">
+                <p *ngFor="let servicios of (element.servicios_prefac | covertir)">
                     {{ servicios.descripcion_proser }}
                 </p>
             </td>

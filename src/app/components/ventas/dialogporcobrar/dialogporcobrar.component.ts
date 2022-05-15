@@ -31,7 +31,7 @@ export class DialogporcobrarComponent implements OnInit {
   displayedConvenio: string[] = ['socio', 'nombres', 'ciruc', 'deuda', 'cantidad', 'precio', 'convenio', 'pagos', 'cuota'];
   dataconvenio: MatTableDataSource<any>;
   socio = '';
-  listasocio: any[];
+  listasocio: any[] = [];
   prefacturanueva: PrefacturaI;
 
   // variables para el convenio de pago
@@ -96,7 +96,7 @@ export class DialogporcobrarComponent implements OnInit {
           this.listasocio = res;
 
           for (let i = 0; i < this.listasocio.length; i++) {
-            this.listasocio[i].servicios_prefac = JSON.parse(this.listasocio[i].servicios_prefac);
+            this.listasocio[i].servicios_prefac = (this.listasocio[i].servicios_prefac);
           }
 
           this.dataSource = new MatTableDataSource(this.listasocio);
@@ -159,7 +159,7 @@ export class DialogporcobrarComponent implements OnInit {
       if(res){
         
         this.enviarFacturaInsert = prefactura;
-        this._factura.getFacturaGenerada(this.token)
+        this._factura.getFacturaGenerada()
         .subscribe((respGetId) =>{
           
           // this.enviarFacturaInsert = {};
@@ -568,22 +568,32 @@ export class DialogporcobrarComponent implements OnInit {
 
   cargarDeudores() {
     this._prefactura.getPrefacturaPorCobrar().subscribe(res => {
+      console.log(res);
+      
       this.listasocio = res;
-      this.dataSource = new MatTableDataSource(this.listasocio);
+      this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
+
+      console.log(this.dataSource);
+      
     });
   }
 
   // seccion para crear convenio de pagos
-  convenio(element) {
-
+    convenio(element) {
+      console.log(element);
+      
     const dialogRef = this.dialog.open(DialogconvenioComponent, {
       width: '500px',
-      data: element
+      data: element,
+      
+
     }
     );
 
     dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      
       if (res) {
         this.cargarDeudores();
       } else {
