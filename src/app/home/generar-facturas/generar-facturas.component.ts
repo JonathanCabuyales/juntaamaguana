@@ -135,11 +135,11 @@ export class GenerarFacturasComponent implements OnInit {
             .subscribe((respSQL) =>{
               console.log(respSQL);
               
-                let ruta_certificado = "http://localhost/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
+                let ruta_certificado = "https://contable.jaapssa.com/libreria_2021/JOSE GERARDO GUALOTUNA LLUMIQUINGA 270422083105.p12";
                 // let pwd_p12 = "Caizad2021";
                 let pwd_p12 = "junta123";
-                let ruta_respuesta = "http://localhost/libreria_2021/example.php";
-                let ruta_factura = "http://localhost/libreria_2021/xmlgenerados/"+resp.claveacceso+".xml";
+                let ruta_respuesta = "https://contable.jaapssa.com/libreria_2021/example.php";
+                let ruta_factura = "https://contable.jaapssa.com/libreria_2021/xmlgenerados/"+resp.claveacceso+".xml";
                 let secuencial = (respXML.data.length === 0) ? 1000 : parseInt(respXML.data[0].secuencial) + 1;  
                 obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta, ruta_factura, resp.claveacceso, secuencial, filas.id_prefac);
                 this._felectronica.updateFactura(resp.claveacceso, filas.id_prefac)
@@ -158,6 +158,11 @@ export class GenerarFacturasComponent implements OnInit {
           
         
       })
+
+  }
+
+  applyFilter(valor: string){
+    this.dataSource.filter = valor.trim().toLowerCase();
 
   }
 

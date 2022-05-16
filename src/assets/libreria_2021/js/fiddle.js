@@ -2,7 +2,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
     // alert("enviando al SRI")
     var response = [];
     $.ajax({
-        url: "http://localhost/libreria_2021/src/leerFactura.php",
+        url: "https://contable.jaapssa.com/libreria_2021/src/leerFactura.php",
         type: 'POST',
         data: {
                   'ruta_factura': ruta_factura, 'token' : token
@@ -35,7 +35,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
                     console.log(comprobanteFirmado_xml);
 
             $.ajax({
-                url: "http://localhost/libreria_2021/src/firma.php",
+                url: "https://contable.jaapssa.com/libreria_2021/src/firma.php",
                 type: 'POST',
                 data: {
                     'mensaje': comprobanteFirmado_xml, 'token' : token
@@ -51,7 +51,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
                         $claveAcceso = $xml.find("claveAcceso");
                 $.ajax({
                     type: 'POST',
-                    url: "http://localhost/libreria_2021/src/services/validarComprobante.php",
+                    url: "https://contable.jaapssa.com/libreria_2021/src/services/validarComprobante.php",
                     data: {
                         'service': service, 'claveAcceso': $claveAcceso.text(), 'token' : token
                     },
@@ -75,7 +75,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
                                 $claveAcceso = $xml.find("claveAcceso");
                         $.ajax({
                             type: 'POST',
-                            url: "http://localhost/libreria_2021/src/services/autorizacionComprobante.php",
+                            url: "https://contable.jaapssa.com/libreria_2021/src/services/autorizacionComprobante.php",
                             data: {
                                 'service': service, 'claveAcceso': $claveAcceso.text(), 'token' : token
                             },
@@ -85,7 +85,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
 
                             $.ajax({
                                 type: 'POST',
-                                url: "http://localhost/libreria_2021/respuestaSRI/respuestSRI.php",
+                                url: "https://contable.jaapssa.com/libreria_2021/respuestaSRI/respuestSRI.php",
                                 data: {
                                     'data': decodeURIComponent(respuestaAutorizacionComprobante),
                                     'id_prefac': id_prefac
@@ -107,7 +107,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
                             response[1] = autorizacion_comprobante;
                             $.ajax({
                                 type: 'POST',
-                                url: "http://localhost/libreria_2021/example.php",
+                                url: "https://contable.jaapssa.com/libreria_2021/example.php",
                                 data: {'respuestaFirmarFactura': response, 'claveacceso': claveDeAcceso},
                                 context: document.body
                             }).done(function (respuesta) {
@@ -120,7 +120,7 @@ function obtenerComprobanteFirmado_sri(ruta_certificado, pwd_p12, ruta_respuesta
                     } else {
                         $.ajax({
                             type: 'POST',
-                            url: "http://localhost/libreria_2021/respuestaSRI/respuestSRI.php",
+                            url: "https://contable.jaapssa.com/libreria_2021/respuestaSRI/respuestSRI.php",
                             data: {
                                 'data': respuestaAutorizacionComprobante
                             },
@@ -182,7 +182,7 @@ function fechas_certificado(ruta_certificado, mi_pwd_p12, ruta_respuesta) {
 
         $.ajax({
             type: 'POST',
-            url: "http://localhost/libreria_2021/src/validarFechaCertificado.php",
+            url: "https://contable.jaapssa.com/libreria_2021/src/validarFechaCertificado.php",
             data: {
                 'fechaInicio': fechaInicio,
                 'fechaFin': fechaFin, 'token' : token
@@ -335,7 +335,7 @@ function firmarComprobante(mi_contenido_p12, mi_pwd_p12, comprobante,token) {
 
     $.ajax({
         type: 'POST',
-        url: "http://localhost/libreria_2021/src/validarFechaCertificado.php",
+        url: "https://contable.jaapssa.com/libreria_2021/src/validarFechaCertificado.php",
         data: {
             'fechaInicio': fechaInicio,
             'fechaFin': fechaFin, 'token' : token

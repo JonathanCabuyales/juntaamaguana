@@ -26,6 +26,11 @@
 <div class="row mt-5" *ngIf="mostrarTrabla">
     
 </div>
+<div class="row">
+    <div class="col" style="margin: 10px;">
+        <input type="text" class="form-control" placeholder="Buscar..." name="documentID" (keyup)="applyFilter($event.target.value)">
+    </div>
+</div>
 <div class="row mt-5" class="mat-elevation-z8" *ngIf="mostrarTrabla">
     <table mat-table #table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="id_prefac">
